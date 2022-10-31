@@ -6,7 +6,7 @@ This project has expanded to include a camera for timealpse.
 
 ## Components ## 
 ### Raspberry Pi 4 ModelB ###
-I recommend installing remote desktop so your interaction with this device is not limited to ssh. 
+Any Raspberry Pi with a current rasbian distro should work. 
 ![GPIO Pinout!](https://i.pinimg.com/originals/78/71/2d/78712d34559353e662bbe2c767ce4702.png "GPIO Pinout")
 ### DHT11 Temperature and Humidity Sensor ### 
 ![Wiring Diagram!](https://www.thegeekpub.com/wp-content/uploads/2019/05/Using-the-DHT11-Temperature-Sensor-with-the-Raspberry-Pi-DHT11-DHT22-Module-Wiring-Diagram.jpg "Wiring Diagram")
@@ -39,6 +39,7 @@ https://www.shellhacks.com/raspberry-pi-mount-usb-drive-automatically/
 	sudo nano /etc/fstab
 	UUID=58B5-F0CA /mnt/usb0 vfat defaults,auto,users,rw,nofail,umask=000 0 0
 ### INSTALL SSH ### 
+I recommend installing remote desktop so your interaction with this device is not limited to ssh. 
 	sudo apt install openssh-server
 	systemctl status ssh
 	sudo service ssh start
