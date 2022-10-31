@@ -20,7 +20,8 @@ Prefrences> Rasberry Pi Configuration> Interfaces> I2C -> Enabled
 ### Disable Onboard Wifi ###
 	sudo nano /boot/config.txt
 Find the following line:
-"Additional overlays and parameters are documented /boot/overlays/READM"
+"Additional overlays and parameters are documented /boot/overlays/README "
 And add these two lines under it
+
 	dtoverlay=disable-wifi
 	dtoverlay=disable-bt
