@@ -8,7 +8,7 @@ This project has expanded to include a camera for timealpse.
 ### Raspberry Pi 4 ModelB ###
 ### DHT11 Temperature and Humidity Sensor ###
 ### BH1750FVI Light Sensor ### 
-![Wiring Diagram!](C:\Users\garre\Downloads\bh175.jpg "Wiring Diagram")
+![Wiring Diagram!](https://i1.wp.com/www.pibits.net/wp-content/uploads/2016/09/PI-AND-bh1750_bb.png?resize=500%2C1024 "Wiring Diagram")
 ### Arducam 2MP Infrared USB2.0 ### 
 ### BrosTrend USB Wifi Adapter ###
 ### 4GB USB Flash Drive ### 
