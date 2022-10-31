@@ -15,7 +15,7 @@ I recommend installing remote desktop so your interaction with this device is no
 ### 4GB USB Flash Drive ### 
 Any flash drive or external hard drive will work. It will not be best to store this data to the operating SD card. 
 ### BrosTrend USB Wifi Adapter ###
-Any Rasberry Pi or linux capable device should work. Make sure you check not all Wifi extenders are compatable. 
+Any Rasberry Pi or linux capable device should work. Make sure you check, not all Wifi extenders are compatable. 
 ### Arducam 2MP Infrared USB2.0 ### 
 Any USB camera should work. Make sure that it will be compatable. 
 
@@ -34,6 +34,7 @@ And add these two lines under it
 	dtoverlay=disable-bt
 ### Auto-Mount USB Drive ###
 https://www.shellhacks.com/raspberry-pi-mount-usb-drive-automatically/
+
 	sudo cp /etc/fstab /etc/fstab.back
 	sudo nano /etc/fstab
 	UUID=58B5-F0CA /mnt/usb0 vfat defaults,auto,users,rw,nofail,umask=000 0 0
@@ -44,8 +45,10 @@ https://www.shellhacks.com/raspberry-pi-mount-usb-drive-automatically/
 
 ## Start Scripts on Boot ## 
 Create Service
+
 	sudo nano /lib/systemd/system/EnvironmentSensor.service
 Add the text
+
 	[Unit]
 	Description=EnvironmentServer
 	After=network.target
@@ -56,11 +59,13 @@ Add the text
 	[Install]
 	WantedBy=multi-user.target
 Enable the service
+
 	sudo systemctl enable EnvironmentSensor.service
 Chech the status of the service
+
 	sudo systemctl status EnvironmentSensor.service
 
-For the most convenience create services for all the python scripts:
-EnvironmentSensor.py
-EnvironmentServer.py
+For the most convenience create services for all the python scripts:<br>
+EnvironmentSensor.py<br>
+EnvironmentServer.py<br>
 ImageCapture.py
