@@ -6,12 +6,15 @@ This project has expanded to include a camera for timealpse.
 
 ## Components ## 
 ### Raspberry Pi 4 ModelB ###
+I recommend installing remote desktop so your interaction with this device is not limited to ssh. 
 ### DHT11 Temperature and Humidity Sensor ###
+![Wiring Diagram!](https://www.thegeekpub.com/wp-content/uploads/2019/05/Using-the-DHT11-Temperature-Sensor-with-the-Raspberry-Pi-DHT11-DHT22-Module-Wiring-Diagram.jpg "Wiring Diagram")
 ### BH1750FVI Light Sensor ### 
 ![Wiring Diagram!](https://i1.wp.com/www.pibits.net/wp-content/uploads/2016/09/PI-AND-bh1750_bb.png?resize=500%2C1024 "Wiring Diagram")
-### Arducam 2MP Infrared USB2.0 ### 
-### BrosTrend USB Wifi Adapter ###
 ### 4GB USB Flash Drive ### 
+### BrosTrend USB Wifi Adapter ###
+### Arducam 2MP Infrared USB2.0 ### 
+
 
 ## Raspberry Pi Set Up ## 
 ### Enable I2C ### 
