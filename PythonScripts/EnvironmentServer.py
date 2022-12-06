@@ -2,7 +2,7 @@
 #####     ENVIRONMENT SERVER | HOST DATA FOR USERS          #####
 #####     AUTHOR: GARRETT PETER BARDINI (GPB)               #####
 #####     CREATE_DATE: 2022/10/11                           #####
-#####     LAST_MODIFIED: 2022/10/28                         #####
+#####     LAST_MODIFIED: 2022/12/06                         #####
 #################################################################
 import os
 import time
@@ -30,24 +30,16 @@ class MyServer(BaseHTTPRequestHandler):
         # CREATE PLOTS #
         div1 = temp_humid_plot(df)
         div2 = temp_lumen_plot(df)
-        # LOAD IMAGES # 
+        # LOAD IMAGE # 
         img1 = get_recent_image()
-        img2 = get_current_image()
         self.send_response(200)
         self.send_header("Content-type", "text/html")
         self.end_headers()
         self.wfile.write(bytes("<body><center>", "utf-8"))
         self.wfile.write(bytes(div1, "utf-8"))
-        # self.wfile.write(bytes("</body></html>", "utf-8"))
-        # self.wfile.write(bytes("<body><center>", "utf-8"))
         self.wfile.write(bytes(div2, "utf-8"))
         self.wfile.write(bytes("</body></html>", "utf-8"))
-        # self.wfile.write(bytes("<body><center>", "utf-8"))
         self.wfile.write(bytes(img1, "utf-8")) # TITLE?
-        # self.wfile.write(bytes("</body></html>", "utf-8"))
-        # self.wfile.write(bytes("</body></html>", "utf-8"))
-        # self.wfile.write(bytes("<body><center>", "utf-8"))
-        self.wfile.write(bytes(img2, "utf-8")) # TITLE?
         self.wfile.write(bytes("</body></html>", "utf-8"))
 
 def temp_humid_plot(df):
