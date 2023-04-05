@@ -62,10 +62,14 @@ Add the text
 Enable the service
 
 	sudo systemctl enable EnvironmentSensor.service
-Chech the status of the service
+Check the status of the service
 
 	sudo systemctl status EnvironmentSensor.service
+	sudo service EnvironmentSensor status
+Stop service
 
+	sudo systemctl stop EnvironmentSensor.service
+	sudo service EnvironmentSensor stop
 For the most convenience create services for all the python scripts:<br>
 EnvironmentSensor.py<br>
 EnvironmentServer.py<br>
