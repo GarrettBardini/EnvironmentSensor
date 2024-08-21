@@ -1,8 +1,9 @@
+#!/usr/bin/env python3
 #################################################################
 #####     ENVIRONMENT SERVER | HOST DATA FOR USERS          #####
 #####     AUTHOR: GARRETT PETER BARDINI (GPB)               #####
 #####     CREATE_DATE: 2022/10/11                           #####
-#####     LAST_MODIFIED: 2022/12/06                         #####
+#####     LAST_MODIFIED: 2024/08/21                         #####
 #################################################################
 import os
 import time
@@ -30,16 +31,24 @@ class MyServer(BaseHTTPRequestHandler):
         # CREATE PLOTS #
         div1 = temp_humid_plot(df)
         div2 = temp_lumen_plot(df)
-        # LOAD IMAGE # 
+        # LOAD IMAGES # 
         img1 = get_recent_image()
+        img2 = get_current_image()
         self.send_response(200)
         self.send_header("Content-type", "text/html")
         self.end_headers()
         self.wfile.write(bytes("<body><center>", "utf-8"))
         self.wfile.write(bytes(div1, "utf-8"))
+        # self.wfile.write(bytes("</body></html>", "utf-8"))
+        # self.wfile.write(bytes("<body><center>", "utf-8"))
         self.wfile.write(bytes(div2, "utf-8"))
         self.wfile.write(bytes("</body></html>", "utf-8"))
+        # self.wfile.write(bytes("<body><center>", "utf-8"))
         self.wfile.write(bytes(img1, "utf-8")) # TITLE?
+        # self.wfile.write(bytes("</body></html>", "utf-8"))
+        # self.wfile.write(bytes("</body></html>", "utf-8"))
+        # self.wfile.write(bytes("<body><center>", "utf-8"))
+        self.wfile.write(bytes(img2, "utf-8")) # TITLE?
         self.wfile.write(bytes("</body></html>", "utf-8"))
 
 def temp_humid_plot(df):
@@ -150,7 +159,7 @@ def get_recent_image():
     images = glob.glob(os.path.join(imageDir, '*' + commonName))
     imgDates = []
     for img in images:
-        imDate = int(img.strip(commonName).strip(imageDir))
+        imDate = int((os.path.basename(img)).strip(commonName))
         imgDates.append(imDate)
     recentImage = (os.path.join(imageDir,str(max(imgDates))+commonName))
     uri = base64.b64encode(open(recentImage, 'rb').read()).decode('utf-8')
@@ -160,7 +169,10 @@ def get_recent_image():
 def get_current_image():
     tempDir = '/home/GPI/Documents/EnvironmentSensor'
     cam = cv2.VideoCapture(0)
-    ret, image = cam.read()
+    attempts = 0
+    while attempts < 75:
+        ret, image = cam.read()
+        attempts += 1
     cv2.imwrite(os.path.join(tempDir,'temp.jpg'), image)
     cam.release()
     cv2.destroyAllWindows()
